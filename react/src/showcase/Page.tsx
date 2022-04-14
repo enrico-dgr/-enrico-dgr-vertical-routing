@@ -1,7 +1,6 @@
 import { Routes } from "../components";
 
 import React from "react";
-import ROUTES from "./constants/routes";
 
 const First = () => (
 	<div className="section">
@@ -22,18 +21,18 @@ const Firth = () => (
 const Page = () => {
 	return (
 		<Routes
-			basePath={ROUTES.PAGE._}
+			basePath="page"
 			routes={[
 				{
-					path: ROUTES.PAGE.FIRST._,
+					path: "first",
 					element: <First />,
 				},
 				{
-					path: ROUTES.PAGE.SECOND._,
+					path: "second",
 					element: <Second />,
 				},
 				{
-					path: ROUTES.PAGE.FIRTH._,
+					path: "firth",
 					element: <Firth />,
 				},
 			]}

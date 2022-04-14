@@ -1,28 +1,27 @@
 import React, { Component, ReactNode } from "react";
 
-type RouteProps = typeof Route.defaultProps & {
-	componentDidMount: (_div: HTMLDivElement) => void;
+export type PropsRoute = {
+	onComponentDidMount?: (div: HTMLDivElement) => void;
 	element: ReactNode;
 	path: string;
 };
 
-class Route extends Component<RouteProps, {}> {
-	constructor(props: RouteProps) {
+class Route extends Component<PropsRoute, {}> {
+	constructor(props: PropsRoute) {
 		super(props);
 
+		this.onComponentDidMount =
+			this.props.onComponentDidMount ?? (() => undefined);
 		this.myRef = React.createRef<HTMLDivElement>();
 		this.state = {};
 	}
 
-	static defaultProps = {
-		componentDidMount: (_div: HTMLDivElement) => {},
-	};
-
+	onComponentDidMount;
 	myRef;
 
 	componentDidMount = () => {
 		if (!!this.myRef.current) {
-			this.props.componentDidMount(this.myRef.current);
+			this.onComponentDidMount(this.myRef.current);
 		}
 	};
 

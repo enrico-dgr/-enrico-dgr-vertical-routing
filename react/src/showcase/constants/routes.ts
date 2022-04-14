@@ -1,39 +1,39 @@
 const ROUTES = {
 	_: "/",
 	PAGE: {
-		_: "/page/*",
+		_: "page",
 		get: () => "/page",
 		FIRST: {
-			_: "/page/first",
+			_: "first",
 			get: () => "/page/first",
 		},
 		SECOND: {
-			_: "/page/second",
+			_: "second",
 			get: () => "/page/second",
 		},
 		FIRTH: {
-			_: "/page/firth",
+			_: "firth",
 			get: () => "/page/firth",
 		},
 	},
 	PAGE_TWO: {
-		_: "/page-two/*",
+		_: "page-two",
 		get: () => "/page-two",
 		FIRST: {
-			_: "/page-two/first",
+			_: "first",
 			get: () => "/page-two/first",
 		},
 		SECOND: {
-			_: "/page-two/second",
+			_: "second",
 			get: () => "/page-two/second",
 		},
 		FIRTH: {
-			_: "/page-two/firth",
+			_: "firth",
 			get: () => "/page-two/firth",
 		},
 	},
 	PAGE_THREE: {
-		_: "/page-three",
+		_: "page-three",
 		get: () => "/page-three",
 	},
 };

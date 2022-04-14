@@ -1,11 +1,8 @@
 import React, { Component, CSSProperties } from "react";
-import Route from "./Route";
+import Route, { PropsRoute } from "./Route";
 
-import ExtractComponentProps from "../types/ExtractComponentProps";
 import { animateScroll } from "./animateScroll";
 import { addListener, removeListener } from "./scroll";
-
-type PropsRoute = ExtractComponentProps<typeof Route>;
 
 type Props = {
 	basePath: string;
@@ -134,7 +131,7 @@ class Routes extends Component<Props, State> {
 		<Route
 			key={this.props.basePath + i + route.path}
 			{...route}
-			componentDidMount={this.addRouteToState(route.path)}
+			onComponentDidMount={this.addRouteToState(route.path)}
 		/>
 	);
 }
