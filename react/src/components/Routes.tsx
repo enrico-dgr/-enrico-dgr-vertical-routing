@@ -10,6 +10,16 @@ type PropsRoute = ExtractComponentProps<typeof Route>;
 type Props = {
 	basePath: string;
 	classNameContainer?: string;
+	/**
+	 * When component mounts, it will try to redirect
+	 * to the right subpath ( if needed ).
+	 * This is the time in milliseconds given
+	 * to the `setInterval` which will try to redirect
+	 * every `onMountScrollDelay` ms.
+	 *
+	 * **Default :** `300ms`
+	 */
+	onMountScrollDelay?: number;
 	routes: PropsRoute[];
 	styleContainer?: CSSProperties;
 };
@@ -23,6 +33,7 @@ class Routes extends Component<Props, State> {
 	constructor(props: Props) {
 		super(props);
 
+		this.onMountScrollDelay = this.props.onMountScrollDelay ?? 300;
 		this.refScrollableContainer = React.createRef<HTMLDivElement>();
 
 		this.state = {
@@ -31,6 +42,7 @@ class Routes extends Component<Props, State> {
 		};
 	}
 
+	onMountScrollDelay;
 	refScrollableContainer;
 
 	/**
@@ -77,7 +89,7 @@ class Routes extends Component<Props, State> {
 				clearInterval(interval);
 				this.setState({ absolutePath: location.pathname });
 			}
-		}, 800);
+		}, this.onMountScrollDelay);
 	};
 
 	shouldComponentUpdate = (nextProps: Props, _nextState: State) => {
@@ -111,7 +123,7 @@ class Routes extends Component<Props, State> {
 			<div
 				className={this.props.classNameContainer}
 				ref={this.refScrollableContainer}
-				style={{ ...styleContainer, ...this.props.styleContainer }}
+				style={this.props.styleContainer}
 			>
 				<div style={styleList}>{this.props.routes.map(this.mapRoutes)}</div>
 			</div>
@@ -126,15 +138,6 @@ class Routes extends Component<Props, State> {
 		/>
 	);
 }
-
-const styleContainer: React.HTMLAttributes<HTMLDivElement>["style"] = {
-	border: 0,
-	height: "100%",
-	margin: 0,
-	overflowY: "auto",
-	padding: 0,
-	width: "100%",
-};
 
 const styleList: React.HTMLAttributes<HTMLDivElement>["style"] = {
 	display: "flex",

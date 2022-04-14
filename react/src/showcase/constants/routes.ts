@@ -1,24 +1,40 @@
 const ROUTES = {
-	BASE: "/",
-	VERTICAL_ROUTING: {
-		ABSOLUTE: "/homepage/*",
-		SELF: "homepage",
-		get: () => "/homepage/*",
+	_: "/",
+	PAGE: {
+		_: "/page/*",
+		get: () => "/page",
 		FIRST: {
-			ABSOLUTE: "/homepage/first",
-			SELF: "first",
-			get: () => "/homepage/first",
+			_: "/page/first",
+			get: () => "/page/first",
 		},
 		SECOND: {
-			ABSOLUTE: "/homepage/second",
-			SELF: "second",
-			get: () => "/homepage/second",
+			_: "/page/second",
+			get: () => "/page/second",
 		},
 		FIRTH: {
-			ABSOLUTE: "/homepage/firth",
-			SELF: "firth",
-			get: () => "/homepage/firth",
+			_: "/page/firth",
+			get: () => "/page/firth",
 		},
+	},
+	PAGE_TWO: {
+		_: "/page-two/*",
+		get: () => "/page-two",
+		FIRST: {
+			_: "/page-two/first",
+			get: () => "/page-two/first",
+		},
+		SECOND: {
+			_: "/page-two/second",
+			get: () => "/page-two/second",
+		},
+		FIRTH: {
+			_: "/page-two/firth",
+			get: () => "/page-two/firth",
+		},
+	},
+	PAGE_THREE: {
+		_: "/page-three",
+		get: () => "/page-three",
 	},
 };
 

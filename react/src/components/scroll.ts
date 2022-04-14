@@ -11,10 +11,10 @@ export const removeListener = (listener: Listener) => {
 
 /**
  *
- * @param to absolute path
+ * @param to complete path
  */
-const navigate = (to: string) => {
+const scroll = (to: string) => {
 	listeningRoutesFuncs.forEach((f) => f(to));
 };
 
-export default navigate;
+export default scroll;
