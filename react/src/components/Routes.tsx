@@ -1,7 +1,7 @@
 import React, { Component, CSSProperties } from "react";
 import Route from "./Route";
 
-import ExtractComponentProps from "../../../types/ExtractComponentProps";
+import ExtractComponentProps from "../types/ExtractComponentProps";
 import { animateScroll } from "./animateScroll";
 import { addListener, removeListener } from "./scroll";
 

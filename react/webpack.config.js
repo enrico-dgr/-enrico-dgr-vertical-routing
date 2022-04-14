@@ -17,12 +17,12 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: "./src/index.html",
+			template: "./src/showcase/index.html",
 			inject: false,
 		}),
 	],
 	entry: {
-		index: path.resolve(__dirname, "./src/index.tsx"),
+		index: path.resolve(__dirname, "./src/showcase/index.tsx"),
 	},
 	output: {
 		path: path.resolve(__dirname, "./build"),
