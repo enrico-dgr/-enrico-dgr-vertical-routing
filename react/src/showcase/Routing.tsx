@@ -1,4 +1,10 @@
-import { Navigate, useNavigate, useRoutes } from "react-router-dom";
+import {
+	Navigate,
+	NavigateOptions,
+	To,
+	useNavigate,
+	useRoutes,
+} from "react-router-dom";
 import ROUTES from "./constants/routes";
 import React from "react";
 import Page from "./Page";
@@ -6,13 +12,34 @@ import PageTwo from "./PageTwo";
 import { scroll } from "../components";
 import PageThree from "./PageThree";
 
+const useNavigateCustom = () => {
+	const navigate = useNavigate();
+
+	return (to: To, options?: NavigateOptions | undefined) => {
+		navigate(to, options);
+
+		let path = "";
+
+		if (typeof to === "string") {
+			path = to;
+		} else {
+			path = to.pathname ?? "";
+		}
+
+		scroll(path);
+	};
+};
+
 const Nav = () => {
 	const navigate = useNavigate();
+	const navigateCustom = useNavigateCustom();
 
 	const goTo = (to: string) => () => {
 		navigate(to);
 		scroll(to);
 	};
+
+	const goToCustom = (to: string) => () => navigateCustom(to);
 
 	return (
 		<nav>
@@ -22,9 +49,15 @@ const Nav = () => {
 				<button onClick={goTo(ROUTES.PAGE.FIRTH.get())}>1 - Firth</button>
 			</div>
 			<div>
-				<button onClick={goTo(ROUTES.PAGE_TWO.FIRST.get())}>2 - First</button>
-				<button onClick={goTo(ROUTES.PAGE_TWO.SECOND.get())}>2 - Second</button>
-				<button onClick={goTo(ROUTES.PAGE_TWO.FIRTH.get())}>2 - Firth</button>
+				<button onClick={goToCustom(ROUTES.PAGE_TWO.FIRST.get())}>
+					2 - First
+				</button>
+				<button onClick={goToCustom(ROUTES.PAGE_TWO.SECOND.get())}>
+					2 - Second
+				</button>
+				<button onClick={goToCustom(ROUTES.PAGE_TWO.FIRTH.get())}>
+					2 - Firth
+				</button>
 			</div>
 			<div>
 				<button onClick={goTo(ROUTES.PAGE_THREE.get())}>Page Three</button>
