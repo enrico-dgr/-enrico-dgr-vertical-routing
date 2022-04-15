@@ -9,8 +9,11 @@
   "private": false,
   "scripts": {
     "dev": "npx webpack serve --config webpack.showcase.config.js",
-    "build:showcase": "rimraf showcase/build && npx webpack --config webpack.showcase.prod.config.js",
-    "publish:showcase": "yarn run build:showcase && ts-node gh-pages.ts"
+    "prebuild:showcase": "rimraf showcase/build",
+    "build:showcase": "npx webpack --config webpack.showcase.prod.config.js",
+    "publish:showcase": "yarn run build:showcase && ts-node gh-pages.ts",
+    "prebuild:prod": "rimraf dist && ts-node prebuild",
+    "build:prod": "tsc -p ./tsconfig.prod.json"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
@@ -24,8 +27,7 @@
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.5.1",
     "path-browserify": "^1.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "prettier": "^2.6.2",
     "react-router-dom": "^6.2.1",
     "ts-jest": "^27.1.3",
     "ts-loader": "^9.2.6",
@@ -34,5 +36,9 @@
     "webpack": "^5.69.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }

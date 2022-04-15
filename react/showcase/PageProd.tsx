@@ -1,7 +1,8 @@
-import { Routes } from "../src/components";
-
 import React from "react";
+
+//
 import ROUTES from "./constants/routes";
+import { Routes } from "../dist";
 
 const First = () => (
   <div className="section">
