@@ -40,7 +40,7 @@ import { Routes } from "@enrico-dgr/vertical-routing-react";
 const Page = () => {
   return (
     <Routes
-      basePath="page"
+      baseAbsolutePath="/page"
       routes={[
         {
           path: "first", // --> /page/first
@@ -117,7 +117,7 @@ const Routing = () =>
       element: <div>...</div>,
     },
     {
-      path: "/page/*", // wildcard needed
+      path: "page/*", // wildcard needed
       element: <Page />,
     },
   ]);
@@ -198,7 +198,9 @@ const useNavigate = () => {
 };
 
 export default useNavigate;
+```
 
+```tsx
 // Nav.tsx (or .jsx)
 import useNavigate from "path/to/useNavigate";
 
