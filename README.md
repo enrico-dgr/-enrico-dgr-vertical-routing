@@ -99,6 +99,10 @@ export default Nav;
 
 ### Usage with react-router-dom
 
+Tested with:  
+![Router badge](https://img.shields.io/badge/BrowserRouter-OK-green)
+![Router badge](https://img.shields.io/badge/HashRouter-OK-green)
+
 ```tsx
 // Routing.tsx (or .jsx)
 
@@ -224,3 +228,7 @@ const Nav = () => {
 
 export default Nav;
 ```
+
+### Example
+
+[Example page](https://enrico-dgr.github.io/vertical-routing)

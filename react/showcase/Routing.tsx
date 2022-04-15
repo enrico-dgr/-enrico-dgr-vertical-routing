@@ -72,11 +72,16 @@ const Routing = () => (
     {useRoutes([
       {
         path: `${ROUTES._}`,
-        element: <Navigate to={ROUTES.PAGE.get()} />,
+        children: [
+          {
+            path: ``,
+            element: <Navigate to={ROUTES.PAGE.FIRST.get()} />,
+          },
+          { path: ROUTES.PAGE._ + "/*", element: <Page /> },
+          { path: ROUTES.PAGE_TWO._ + "/*", element: <PageTwo /> },
+          { path: ROUTES.PAGE_THREE._ + "/*", element: <PageThree /> },
+        ],
       },
-      { path: ROUTES.PAGE._ + "/*", element: <Page /> },
-      { path: ROUTES.PAGE_TWO._ + "/*", element: <PageTwo /> },
-      { path: ROUTES.PAGE_THREE._ + "/*", element: <PageThree /> },
     ])}
   </>
 );

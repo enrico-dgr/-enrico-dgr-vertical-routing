@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "dev": "npx webpack serve --config webpack.showcase.config.js",
-    "build:showcase": "npx webpack --config webpack.showcase.config.js",
+    "build:showcase": "rimraf showcase/build && npx webpack --config webpack.showcase.prod.config.js",
     "publish:showcase": "yarn run build:showcase && ts-node gh-pages.ts"
   },
   "devDependencies": {

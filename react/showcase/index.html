@@ -7,7 +7,7 @@
       content="
         default-src 'self'; 
         worker-src 'self';
-        script-src 'self';
+        script-src 'self' 'unsafe-inline';
         font-src 'self';
         style-src 'self' 'unsafe-inline'; 
         connect-src 'self'; 
@@ -79,6 +79,9 @@
   </head>
   <body>
     <div id="react"></div>
+    <!-- For GitHub Pages -->
+    <script src="/vertical-routing/index.js"></script>
+    <!-- For dev -->
     <script src="/index.js"></script>
   </body>
 </html>

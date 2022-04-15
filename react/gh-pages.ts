@@ -1,3 +1,14 @@
 import ghPages from "gh-pages";
 
-ghPages.publish("showcase/build", console.error);
+const pathBuild = "showcase/build";
+
+const callback = (err: any) => {
+  if (!!err) {
+    console.error(err);
+    return;
+  }
+
+  console.log(`Dir "${pathBuild}" published to GitHub Pages`);
+};
+
+ghPages.publish(pathBuild, callback);

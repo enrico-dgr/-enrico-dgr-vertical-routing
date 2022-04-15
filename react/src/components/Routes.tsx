@@ -85,14 +85,17 @@ class Routes extends Component<Props, State> {
     let done = false;
 
     const interval = setInterval(() => {
+      let pathname =
+        location.hash === "" ? location.pathname : location.href.split("#")[1];
+
       if (
         !done &&
-        this.state.absolutePath !== location.pathname &&
-        this.scrollToPathname(location.pathname).noScrolling === false
+        this.state.absolutePath !== pathname &&
+        this.scrollToPathname(pathname).noScrolling === false
       ) {
         done = true;
         clearInterval(interval);
-        this.setState({ absolutePath: location.pathname });
+        this.setState({ absolutePath: pathname });
       }
     }, this.onMountScrollDelay);
   };

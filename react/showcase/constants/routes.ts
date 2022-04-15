@@ -5,15 +5,15 @@ const ROUTES = {
     get: () => "/page",
     FIRST: {
       _: "first",
-      get: () => "/page/first",
+      get: () => ROUTES.PAGE.get() + "/first",
     },
     SECOND: {
       _: "second",
-      get: () => "/page/second",
+      get: () => ROUTES.PAGE.get() + "/second",
     },
     THIRD: {
       _: "third",
-      get: () => "/page/third",
+      get: () => ROUTES.PAGE.get() + "/third",
     },
   },
   PAGE_TWO: {
@@ -21,15 +21,15 @@ const ROUTES = {
     get: () => "/page-two",
     FIRST: {
       _: "first",
-      get: () => "/page-two/first",
+      get: () => ROUTES.PAGE_TWO.get() + "/first",
     },
     SECOND: {
       _: "second",
-      get: () => "/page-two/second",
+      get: () => ROUTES.PAGE_TWO.get() + "/second",
     },
     THIRD: {
       _: "third",
-      get: () => "/page-two/third",
+      get: () => ROUTES.PAGE_TWO.get() + "/third",
     },
   },
   PAGE_THREE: {
