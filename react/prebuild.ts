@@ -23,6 +23,11 @@ if (typeof packageJson === "object") {
   });
 
   // create file
-  const packageJsonPath = path.join(dist, "package.json");
-  fs.writeFileSync(packageJsonPath, dataFormatted);
+  const pathPackageJsonDest = path.join(dist, "package.json");
+  fs.writeFileSync(pathPackageJsonDest, dataFormatted);
 }
+
+const pathReadmeSrc = path.join(__dirname, "README.md");
+const pathReadmeDest = path.join(dist, "README.md");
+
+fs.copyFileSync(pathReadmeSrc, pathReadmeDest);
