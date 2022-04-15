@@ -1,8 +1,7 @@
 {
   "name": "@enrico-dgr/vertical-routing-react",
   "version": "0.1.0",
-  "description": "Synced vertical routing for js pages",
-  "main": "index.js",
+  "description": "Vertical routing",
   "repository": "https://github.com/enrico-dgr/vertical-routing",
   "author": "enrico-dgr <enrico.digrazia98@gmail.com>",
   "license": "MIT",
@@ -11,9 +10,11 @@
     "dev": "npx webpack serve --config webpack.showcase.config.js",
     "prebuild:showcase": "rimraf showcase/build",
     "build:showcase": "npx webpack --config webpack.showcase.prod.config.js",
-    "publish:showcase": "yarn run build:showcase && ts-node gh-pages.ts",
+    "deploy:showcase": "yarn run build:showcase && ts-node gh-pages.ts",
     "prebuild:prod": "rimraf dist && ts-node prebuild",
-    "build:prod": "tsc -p ./tsconfig.prod.json"
+    "build:prod": "tsc -p ./tsconfig.prod.json",
+    "prerelease": "yarn run build:prod",
+    "release": "cd ./dist && npm publish && cd .."
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
